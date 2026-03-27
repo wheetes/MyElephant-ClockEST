@@ -3,63 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="clock.css">
   <title>Real-Time EST Clock</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #3624d6, #302b63, #24243e);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: rgb(224, 255, 224);
-    }
-    .clock-container {
-      text-align: center;
-      padding: 40px;
-      border: 2px solid rgb(255, 255, 255);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.4);
-      box-shadow: 0 0 40px rgba(0, 255, 0, 0.3);
-      min-width: 380px;
-    }
-    h1 {
-      margin: 0 0 20px;
-      font-size: 2.8rem;
-      text-shadow: 0 0 15px rgb(0, 0, 0);
-    }
-    .time {
-      font-size: 4.5rem;
-      font-weight: bold;
-      letter-spacing: 4px;
-      text-shadow: 0 0 30px rgb(0, 0, 0);
-    }
-    .date {
-      margin-top: 20px;
-      font-size: 1.6rem;
-      opacity: 0.9;
-    }
-    .label {
-      font-size: 1.3rem;
-      margin-top: 10px;
-      opacity: 0.7;
-    }
-  </style>
 </head>
 <body>
 
-  <div class="clock-container">
+  <div>
     <h1>Real-Time Eastern Time (EST/EDT)</h1>
-    <div class="time" id="time"></div>
-    <div class="date" id="date"></div>
-    <div class="label">🐘 My-Elephant Clock – Always on beat</div>
+    <div id="time"></div>
+    <div id="date"></div>
+    <div>🐘 My-Elephant Clock – Always on beat</div>
   </div>
 
   <script>
     function updateClock() {
       const now = new Date();
-      
       
       const formatter = new Intl.DateTimeFormat('en-US', {
         timeZone: 'America/New_York',
@@ -83,7 +41,6 @@
       document.getElementById('time').textContent = timeString;
       document.getElementById('date').textContent = dateString;
     }
-
 
     updateClock();
     setInterval(updateClock, 1000);
